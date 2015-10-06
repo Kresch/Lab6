@@ -1,6 +1,6 @@
 #'
 #' Brute force algorithm for the knapsack problem
-#' 
+#'  @name Brute force
 #'  @param x is a 2dim matrix containing the weights and values
 #'  @param W is the capacity of the knapsack
 #'  @return a list with the _value_ of the optimally packed knapsack and the _elements_ that gives this value.

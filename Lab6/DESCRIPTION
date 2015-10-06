@@ -7,3 +7,7 @@ Author: Niclas Lovsjö, Maxime Bonneau
 Maintainer: <niclas.lovsjo@me.com>
 Description: tests difference approaches to solving the knapsack-problem. Incl. a brute force, dynamic programming and greedy algorithm
 License: GPL-2
+Suggests: testthat,
+    knitr,
+    rmarkdown
+VignetteBuilder: knitr

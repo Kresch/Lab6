@@ -1,6 +1,7 @@
 #'
 #' Dynamic programming algorithm for the knapsack problem
 #' 
+#' @name Dynamic programming
 #'  @param x is a 2dim matrix containing the weights and values
 #'  @param W is the capacity of the knapsack
 #'  @return a list with the _value_ of the optimally packed knapsack and the _elements_ that gives this value.
@@ -25,9 +26,11 @@ knapsack_objects <-
 x<-data.frame(w=c(1,1,1,1,2,2,3),v=c(1,1,2,3,1,3,5))
 W=7
 knapsack_dynamic<-function(x,W){
-        lapply(w,function(x){stopifnot(is.integer(x))})
         w<-x$w
         v<-x$v
+        lapply(w,function(x){stopifnot(is.integer(x))})
+        
+        
         n<-nrow(x)
         m<-matrix(rep(0,times=(n+1)*(W+1)),nrow=n+1)
         #weights as columns. items as rows
