@@ -1,4 +1,13 @@
-#binary approach
+#'
+#' Brute force algorithm for the knapsack problem
+#' 
+#'  @param x is a 2dim matrix containing the weights and values
+#'  @param W is the capacity of the knapsack
+#'  @return a list with the _value_ of the optimally packed knapsack and the _elements_ that gives this value.
+#'  @description uses brute force, i.e. tests all combinations and finds the one with max value under the restriction total weight<W.
+#'  @references https://en.wikipedia.org/wiki/Knapsack_problem
+#' 
+
 set.seed(42)
 n <- 2000
 knapsack_objects <-

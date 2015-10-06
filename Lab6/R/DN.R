@@ -1,4 +1,14 @@
-#R practice
+#'
+#' Dynamic programming algorithm for the knapsack problem
+#' 
+#'  @param x is a 2dim matrix containing the weights and values
+#'  @param W is the capacity of the knapsack
+#'  @return a list with the _value_ of the optimally packed knapsack and the _elements_ that gives this value.
+#'  @description Uses DP to find optimal value and elements, i.e. divides the problem into subproblems and solve each one, memoizes it and solve the whole problem by using that
+#'  @references https://en.wikipedia.org/wiki/Knapsack_problem
+#' 
+
+
 set.seed(42)
 n <- 2000
 knapsack_objects <-
