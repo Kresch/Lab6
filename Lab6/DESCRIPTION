@@ -1,9 +1,9 @@
 Package: Lab6
 Type: Package
-Title: What the package does (short line)
+Title: knapsack-algos
 Version: 1.0
 Date: 2015-10-06
-Author: Who wrote it
-Maintainer: Who to complain to <yourfault@somewhere.net>
-Description: More about what it does (maybe more than one line)
-License: What license is it under?
+Author: Niclas Lovsjö, Maxime Bonneau
+Maintainer: niclas.lovsjo@me.com
+Description: tests difference approaches to solving the knapsack-problem. Incl. a brute force, dynamic programming and greedy algorithm
+License: GPL-2
