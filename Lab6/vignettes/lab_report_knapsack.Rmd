@@ -9,9 +9,33 @@ vignette: >
   %\VignetteEncoding{UTF-8}
 ---
 This lab is about writing fast code. We have included 3 types of algorithms for solving the knapsack optimization problem. We have a brute force, a dynamic programming and a greedy approach. We will use this vignette to comment about our results. 
-
+  
 _**Brute force search**_  
   
-*How long time does it take to run the brute force algorithm with n=16?*
+**Question:** *How long time does it take to run the brute force algorithm with n=16?*
   
-Looping it 1000 times gives the mean time 0.028194.
+```{r}
+set.seed(42)
+n <- 16
+knapsack_objects <-
+        data.frame(
+                w=sample(1:4000, size = n, replace = TRUE),
+                v=runif(n = n, 0, 10000)
+        )
+system.time(brute_force_knapsack(knapsack_objects,2000))
+```
+
+
+_**Dynamic programming**_  
+  
+**Question:** *How long time does it take to run the algorithm for n=500 objects?*
+```{r}
+set.seed(42)
+n <- 500
+knapsack_objects <-
+        data.frame(
+                w=sample(1:4000, size = n, replace = TRUE),
+                v=runif(n = n, 0, 10000)
+        )
+system.time(knapsack_dynamic(knapsack_objects,2000))
+```
