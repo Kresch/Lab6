@@ -1,0 +1,46 @@
+#binary approach
+set.seed(42)
+n <- 2000
+knapsack_objects <-
+        data.frame(
+                w=sample(1:4000, size = n, replace = TRUE),
+                v=runif(n = n, 0, 10000)
+        )
+
+
+brute_force_knapsack<-function(x, W){
+        stopifnot(is.data.frame(x))
+        stopifnot(dim(x)[2]==2)
+        stopifnot(names(x)==c("w","v"))
+        stopifnot(all(x$w>0)&&all(x$v>0))
+        n<-length(x$w)
+        #create matrix of bin reps.
+        bin_mat<-sapply(c(1:2^n),function(x){as.integer(intToBits(x)[1:n])})
+        #where we only have the bits that are needed to define a number of max 2^n
+        
+        
+        #now we can matrix-multiplicate this with the vector of weights and
+        #for those that satisfy weights<W we calculate the values 
+        values<-c()
+        find_W<-function(col){
+                OK_weights<-c()
+                weight<-t(x$w)%*%col
+                if (weight<=W){
+                        values<-c(values,t(x$v)%*%col)
+                } else { values<-c(values,0)}
+                return(values)
+        }
+        m<-apply(bin_mat,2,find_W)
+        #we have the values and want the max and which combination of items corresponds to 
+        #this maxima.
+        index_max_value<-which.max(m)
+        index_elements<-bin_mat[,index_max_value]
+        elements<-c(c(1:n)*index_elements)
+        elements<-elements[elements>0]
+        #the last couple of rows might be done simpler? but doesnt affect runtime.
+        return(list(value=round(max(m)),elements=elements))
+        
+}
+ptm<-proc.time()
+brute_force_knapsack(x = knapsack_objects[1:16,], W = 2000)
+proc.time() - ptm
