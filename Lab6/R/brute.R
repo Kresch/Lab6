@@ -50,6 +50,4 @@ brute_force_knapsack<-function(x, W){
         return(list(value=round(max(m)),elements=elements))
         
 }
-ptm<-proc.time()
-brute_force_knapsack(x = knapsack_objects[1:16,], W = 2000)
-proc.time() - ptm
+
