@@ -43,6 +43,28 @@ knapsack_objects <-
 system.time(knapsack_dynamic(knapsack_objects,2000))
 ```
   
+  
+_**Greedy heuristic**_
+
+**Question:** *How long time does it take to run the algorithm for n=1000000 objects?*
+
+```{r}
+n <- 1000000
+knapsack_objects <-
+        data.frame(
+                w=sample(1:4000, size = n, replace = TRUE),
+                v=runif(n = n, 0, 10000)
+        )
+  
+system.time(greedy_knapsack(knapsack_objects,W=2000))
+```
+
+_**Profiling**_
+
+**Question:** *How large performance gain could you get by trying to improving your code?*
+
+We didnt find any particular bottlenecks using lineprof.
+  
 _**Parallelize brute force**_
 
 **Question:** *How large performance gain could you get by parallelizing brute force search?*
@@ -58,3 +80,4 @@ knapsack_objects <-
 system.time(brute_force_knapsack_para_nopara(knapsack_objects,W=2000))
 system.time(brute_force_knapsack_para(knapsack_objects,W=2000))
 ```
+

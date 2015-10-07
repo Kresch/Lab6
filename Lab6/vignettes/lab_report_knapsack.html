@@ -70,7 +70,7 @@ knapsack_objects &lt;-
         )
 <span class="kw">system.time</span>(<span class="kw">brute_force_knapsack</span>(knapsack_objects,<span class="dv">2000</span>))</code></pre>
 <pre><code>##    user  system elapsed 
-##   1.160   0.015   1.176</code></pre>
+##   1.187   0.018   1.209</code></pre>
 <p><em><strong>Dynamic programming</strong></em></p>
 <p><strong>Question:</strong> <em>How long time does it take to run the algorithm for n=500 objects?</em></p>
 <pre class="sourceCode r"><code class="sourceCode r"><span class="kw">set.seed</span>(<span class="dv">42</span>)
@@ -82,7 +82,22 @@ knapsack_objects &lt;-
         )
 <span class="kw">system.time</span>(<span class="kw">knapsack_dynamic</span>(knapsack_objects,<span class="dv">2000</span>))</code></pre>
 <pre><code>##    user  system elapsed 
-##   2.214   0.017   2.232</code></pre>
+##   2.209   0.019   2.231</code></pre>
+<p><em><strong>Greedy heuristic</strong></em></p>
+<p><strong>Question:</strong> <em>How long time does it take to run the algorithm for n=1000000 objects?</em></p>
+<pre class="sourceCode r"><code class="sourceCode r">n &lt;-<span class="st"> </span><span class="dv">1000000</span>
+knapsack_objects &lt;-
+<span class="st">        </span><span class="kw">data.frame</span>(
+                <span class="dt">w=</span><span class="kw">sample</span>(<span class="dv">1</span>:<span class="dv">4000</span>, <span class="dt">size =</span> n, <span class="dt">replace =</span> <span class="ot">TRUE</span>),
+                <span class="dt">v=</span><span class="kw">runif</span>(<span class="dt">n =</span> n, <span class="dv">0</span>, <span class="dv">10000</span>)
+        )
+  
+<span class="kw">system.time</span>(<span class="kw">greedy_knapsack</span>(knapsack_objects,<span class="dt">W=</span><span class="dv">2000</span>))</code></pre>
+<pre><code>##    user  system elapsed 
+##   0.757   0.020   0.778</code></pre>
+<p><em><strong>Profiling</strong></em></p>
+<p><strong>Question:</strong> <em>How large performance gain could you get by trying to improving your code?</em></p>
+<p>We didnt find any particular bottlenecks using lineprof.</p>
 <p><em><strong>Parallelize brute force</strong></em></p>
 <p><strong>Question:</strong> <em>How large performance gain could you get by parallelizing brute force search?</em></p>
 <p>Since we had to re-do our brute-force, we will compare the parallelized one with the re-made one not using the mclapply-function.</p>
@@ -94,10 +109,10 @@ knapsack_objects &lt;-
         )
 <span class="kw">system.time</span>(<span class="kw">brute_force_knapsack_para_nopara</span>(knapsack_objects,<span class="dt">W=</span><span class="dv">2000</span>))</code></pre>
 <pre><code>##    user  system elapsed 
-##   1.360   0.008   1.369</code></pre>
+##   1.352   0.013   1.374</code></pre>
 <pre class="sourceCode r"><code class="sourceCode r"><span class="kw">system.time</span>(<span class="kw">brute_force_knapsack_para</span>(knapsack_objects,<span class="dt">W=</span><span class="dv">2000</span>))</code></pre>
 <pre><code>##    user  system elapsed 
-##   1.590   0.501   0.861</code></pre>
+##   1.690   0.462   0.878</code></pre>
 
 
 
