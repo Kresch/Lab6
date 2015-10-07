@@ -10,7 +10,7 @@
 
 <meta name="author" content="Niclas Lovsjö and Maxime Bonneau" />
 
-<meta name="date" content="2015-10-06" />
+<meta name="date" content="2015-10-07" />
 
 <title>Lab6 Vignette</title>
 
@@ -54,7 +54,7 @@ code > span.er { color: #ff0000; font-weight: bold; }
 <div id="header">
 <h1 class="title">Lab6 Vignette</h1>
 <h4 class="author"><em>Niclas Lovsjö and Maxime Bonneau</em></h4>
-<h4 class="date"><em>2015-10-06</em></h4>
+<h4 class="date"><em>2015-10-07</em></h4>
 </div>
 
 
@@ -70,7 +70,7 @@ knapsack_objects &lt;-
         )
 <span class="kw">system.time</span>(<span class="kw">brute_force_knapsack</span>(knapsack_objects,<span class="dv">2000</span>))</code></pre>
 <pre><code>##    user  system elapsed 
-##   1.150   0.014   1.164</code></pre>
+##   1.160   0.015   1.176</code></pre>
 <p><em><strong>Dynamic programming</strong></em></p>
 <p><strong>Question:</strong> <em>How long time does it take to run the algorithm for n=500 objects?</em></p>
 <pre class="sourceCode r"><code class="sourceCode r"><span class="kw">set.seed</span>(<span class="dv">42</span>)
@@ -82,7 +82,22 @@ knapsack_objects &lt;-
         )
 <span class="kw">system.time</span>(<span class="kw">knapsack_dynamic</span>(knapsack_objects,<span class="dv">2000</span>))</code></pre>
 <pre><code>##    user  system elapsed 
-##   2.217   0.019   2.241</code></pre>
+##   2.214   0.017   2.232</code></pre>
+<p><em><strong>Parallelize brute force</strong></em></p>
+<p><strong>Question:</strong> <em>How large performance gain could you get by parallelizing brute force search?</em></p>
+<p>Since we had to re-do our brute-force, we will compare the parallelized one with the re-made one not using the mclapply-function.</p>
+<pre class="sourceCode r"><code class="sourceCode r">n &lt;-<span class="st"> </span><span class="dv">16</span>
+knapsack_objects &lt;-
+<span class="st">        </span><span class="kw">data.frame</span>(
+                <span class="dt">w=</span><span class="kw">sample</span>(<span class="dv">1</span>:<span class="dv">4000</span>, <span class="dt">size =</span> n, <span class="dt">replace =</span> <span class="ot">TRUE</span>),
+                <span class="dt">v=</span><span class="kw">runif</span>(<span class="dt">n =</span> n, <span class="dv">0</span>, <span class="dv">10000</span>)
+        )
+<span class="kw">system.time</span>(<span class="kw">brute_force_knapsack_para_nopara</span>(knapsack_objects,<span class="dt">W=</span><span class="dv">2000</span>))</code></pre>
+<pre><code>##    user  system elapsed 
+##   1.360   0.008   1.369</code></pre>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">system.time</span>(<span class="kw">brute_force_knapsack_para</span>(knapsack_objects,<span class="dt">W=</span><span class="dv">2000</span>))</code></pre>
+<pre><code>##    user  system elapsed 
+##   1.590   0.501   0.861</code></pre>
 
 
 

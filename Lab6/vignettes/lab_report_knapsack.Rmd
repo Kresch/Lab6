@@ -8,6 +8,9 @@ vignette: >
   %\VignetteEngine{knitr::rmarkdown}
   %\VignetteEncoding{UTF-8}
 ---
+```{r,include=FALSE}
+library(parallel)
+```
 This lab is about writing fast code. We have included 3 types of algorithms for solving the knapsack optimization problem. We have a brute force, a dynamic programming and a greedy approach. We will use this vignette to comment about our results. 
   
 _**Brute force search**_  
@@ -38,4 +41,20 @@ knapsack_objects <-
                 v=runif(n = n, 0, 10000)
         )
 system.time(knapsack_dynamic(knapsack_objects,2000))
+```
+  
+_**Parallelize brute force**_
+
+**Question:** *How large performance gain could you get by parallelizing brute force search?*
+  
+Since we had to re-do our brute-force, we will compare the parallelized one with the re-made one not using the mclapply-function.
+```{r}
+n <- 16
+knapsack_objects <-
+        data.frame(
+                w=sample(1:4000, size = n, replace = TRUE),
+                v=runif(n = n, 0, 10000)
+        )
+system.time(brute_force_knapsack_para_nopara(knapsack_objects,W=2000))
+system.time(brute_force_knapsack_para(knapsack_objects,W=2000))
 ```
