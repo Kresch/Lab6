@@ -17,7 +17,7 @@ knapsack_objects <-
   )
 library(parallel)
 
-brute_force_knapsack_para<-function(x, W){
+brute_force_knapsack_para_nopara<-function(x, W){
   cores<-parallel::detectCores()
   stopifnot(is.data.frame(x))
   stopifnot(dim(x)[2]==2)
@@ -25,19 +25,10 @@ brute_force_knapsack_para<-function(x, W){
   stopifnot(all(x$w>0)&&all(x$v>0))
   n<-length(x$w)
   #create matrix of bin reps.
-  c1 <- makeCluster(cores, type = "PSOCK")
-  bin_mat <- parLapply(c1,c(1:2^n),function(x){as.integer(intToBits(x)[1:n])}) 
-  stopCluster(c1) 
-  c2 <- makeCluster(cores, type = "PSOCK")
-  weights <- simplify2array(parLapply(c2,bin_mat,function(y){y%*%x$w}))
-  stopCluster(c2) 
-  c3 <- makeCluster(cores, type = "PSOCK")
-  values <- simplify2array(parLapply(c3,bin_mat,function(y){y%*%x$v}))
-  stopCluster(c3) 
-#   bin_mat<-parallel::mclapply(c(1:2^n),function(x){as.integer(intToBits(x)[1:n])},mc.cores=cores)
-#   #where we only have the bits that are needed to define a number of max 2^n
-#   weights<-simplify2array(parallel::mclapply(bin_mat,function(y){y%*%x$w},mc.cores=cores))
-#   values<-simplify2array(parallel::mclapply(bin_mat,function(y){y%*%x$v},mc.cores=cores))
+  bin_mat<-lapply(c(1:2^n),function(x){as.integer(intToBits(x)[1:n])})
+  #where we only have the bits that are needed to define a number of max 2^n
+  weights<-sapply(bin_mat,function(y){y%*%x$w})
+  values<-sapply(bin_mat,function(y){y%*%x$v})
   #returns a list of matrices with 1 element that is the weight of combo i.
   values[weights>W]<-0
   max1_index<-which.max(values)
@@ -49,7 +40,6 @@ brute_force_knapsack_para<-function(x, W){
   elements<-c(c(1:n)*index_elements)
   
   elements<-elements[elements>0]
- 
+  
   return(list(value=round(values[max1_index]),elements=elements))
 }
-

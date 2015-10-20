@@ -1,0 +1,13 @@
+Package: Lab6
+Type: Package
+Title: knapsack-algos
+Version: 1.0
+Date: 2015-10-06
+Author: Niclas Lovsj<c3><b6>, Maxime Bonneau
+Maintainer: <niclas.lovsjo@me.com>
+Description: tests different approaches to solving the knapsack-problem. Incl. a brute force, dynamic programming and greedy algorithm
+License: GPL-2
+Suggests: testthat, knitr, rmarkdown
+VignetteBuilder: knitr
+NeedsCompilation: no
+Packaged: 2015-10-20 12:07:03 UTC; Maxime
