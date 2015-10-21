@@ -10,5 +10,5 @@ License: GPL-2
 Suggests: testthat, knitr, rmarkdown
 VignetteBuilder: knitr
 NeedsCompilation: no
-Packaged: 2015-10-20 12:07:03 UTC; Maxime
-Built: R 3.2.2; ; 2015-10-20 12:07:05 UTC; windows
+Packaged: 2015-10-20 13:28:54 UTC; niclaslovsjo
+Built: R 3.2.2; ; 2015-10-20 13:28:55 UTC; unix

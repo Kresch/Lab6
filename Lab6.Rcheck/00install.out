@@ -1,4 +1,4 @@
-* installing *source* package 'Lab6' ...
+* installing *source* package ‘Lab6’ ...
 ** R
 ** inst
 ** preparing package for lazy loading
@@ -7,6 +7,4 @@
 ** building package indices
 ** installing vignettes
 ** testing if installed package can be loaded
-*** arch - i386
-*** arch - x64
 * DONE (Lab6)

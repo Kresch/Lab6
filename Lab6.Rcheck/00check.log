@@ -1,11 +1,11 @@
-* using log directory 'C:/Users/Maxime/Documents/Lab6/Lab6.Rcheck'
+* using log directory ‘/Users/niclaslovsjo/Desktop/Kurser/R.programming/labbar/lab6/Lab6/Lab6.Rcheck’
 * using R version 3.2.2 (2015-08-14)
-* using platform: x86_64-w64-mingw32 (64-bit)
-* using session charset: ISO8859-1
-* using option '--as-cran'
-* checking for file 'Lab6/DESCRIPTION' ... OK
+* using platform: x86_64-apple-darwin13.4.0 (64-bit)
+* using session charset: UTF-8
+* using option ‘--as-cran’
+* checking for file ‘Lab6/DESCRIPTION’ ... OK
 * checking extension type ... Package
-* this is package 'Lab6' version '1.0'
+* this is package ‘Lab6’ version ‘1.0’
 * checking package namespace information ... OK
 * checking package dependencies ... OK
 * checking if this is a source package ... OK
@@ -13,15 +13,16 @@
 * checking for executable files ... OK
 * checking for hidden files and directories ... OK
 * checking for portable file names ... OK
-* checking whether package 'Lab6' can be installed ... OK
+* checking for sufficient/correct file permissions ... OK
+* checking whether package ‘Lab6’ can be installed ... OK
 * checking installed package size ... OK
 * checking package directory ... OK
-* checking 'build' directory ... OK
+* checking ‘build’ directory ... OK
 * checking DESCRIPTION meta-information ... NOTE
 Malformed Description field: should contain one or more complete sentences.
 * checking top-level files ... NOTE
 Non-standard files/directories found at top level:
-  'brute.out' 'greedy_knapsack.out'
+  ‘brute.out’ ‘greedy_knapsack.out’
 * checking for left-over files ... OK
 * checking index information ... OK
 * checking package subdirectories ... OK
@@ -32,46 +33,43 @@ Non-standard files/directories found at top level:
 * checking whether the package can be unloaded cleanly ... OK
 * checking whether the namespace can be loaded with stated dependencies ... OK
 * checking whether the namespace can be unloaded cleanly ... OK
-* checking loading without being on the library search path ... OK
 * checking dependencies in R code ... OK
 * checking S3 generic/method consistency ... OK
 * checking replacement functions ... OK
 * checking foreign function calls ... OK
 * checking R code for possible problems ... NOTE
 brute_force_knapsack_para: no visible global function definition for
-  'makeCluster'
+  ‘makeCluster’
 brute_force_knapsack_para: no visible global function definition for
-  'parLapply'
+  ‘parLapply’
 brute_force_knapsack_para: no visible global function definition for
-  'stopCluster'
+  ‘stopCluster’
 * checking Rd files ... OK
 * checking Rd metadata ... OK
 * checking Rd line widths ... OK
 * checking Rd cross-references ... WARNING
-Unknown package '<pkg>' in Rd xrefs
+Unknown package ‘<pkg>’ in Rd xrefs
 * checking for missing documentation entries ... WARNING
 Undocumented code objects:
-  'W' 'brute_force_knapsack' 'brute_force_knapsack_para'
-  'brute_force_knapsack_para_nopara' 'greedy_knapsack'
-  'knapsack_dynamic' 'knapsack_objects' 'n' 'x' 'y'
+  ‘W’ ‘brute_force_knapsack’ ‘brute_force_knapsack_para’
+  ‘brute_force_knapsack_para_nopara’ ‘greedy_knapsack’
+  ‘knapsack_dynamic’ ‘knapsack_objects’ ‘n’ ‘x’ ‘y’
 All user-level objects in a package should have documentation entries.
-See chapter 'Writing R documentation files' in the 'Writing R
-Extensions' manual.
+See chapter ‘Writing R documentation files’ in the ‘Writing R
+Extensions’ manual.
 * checking for code/documentation mismatches ... OK
 * checking Rd \usage sections ... OK
 * checking Rd contents ... OK
 * checking for unstated dependencies in examples ... WARNING
-Warning: erreur d'analyse de code dans le fichier 'Lab6-Ex.R' :
-21:11: unexpected symbol
-20: 
-21: ~~ simple examples
+Warning: parse error in file 'Lab6-Ex.R':
+20:11: unexpected symbol
+19: 
+20: ~~ simple examples
               ^
- WARNING
-'qpdf' is needed for checks on size reduction of PDFs
-* checking installed files from 'inst/doc' ... OK
-* checking files in 'vignettes' ... OK
+* checking installed files from ‘inst/doc’ ... OK
+* checking files in ‘vignettes’ ... OK
 * checking examples ... ERROR
-Running examples in 'Lab6-Ex.R' failed
+Running examples in ‘Lab6-Ex.R’ failed
 The error most likely occurred in:
 
 > base::assign(".ptime", proc.time(), pos = "CheckExEnv")
@@ -85,24 +83,13 @@ The error most likely occurred in:
 > ~~ simple examples of the most important functions ~~
 Error: unexpected symbol in "~~ simple examples"
 Execution halted
-* checking for unstated dependencies in 'tests' ... OK
+* checking for unstated dependencies in ‘tests’ ... OK
 * checking tests ... OK
-  Running 'testthat.R'
+  Running ‘testthat.R’
 * checking for unstated dependencies in vignettes ... OK
-* checking package vignettes in 'inst/doc' ... OK
+* checking package vignettes in ‘inst/doc’ ... OK
 * checking running R code from vignettes ... OK
-* checking re-building of vignette outputs ... NOTE
-Error in re-building vignettes:
-  ...
-Quitting from lines 75-83 (lab_report_knapsack.Rmd) 
-Erreur : le traitement de la vignette 'lab_report_knapsack.Rmd' a �chou� avec le diagnostic :
-4 simultaneous processes spawned
-Ex�cution arr�t�e
-
-* checking PDF version of manual ... WARNING
-LaTeX errors when creating PDF version.
-This typically indicates Rd problems.
-LaTeX errors found:
-* checking PDF version of manual without hyperrefs or index ... ERROR
+* checking re-building of vignette outputs ... OK
+* checking PDF version of manual ... OK
 * DONE
-Status: 2 ERRORs, 5 WARNINGs, 4 NOTEs
+Status: 1 ERROR, 3 WARNINGs, 3 NOTEs
