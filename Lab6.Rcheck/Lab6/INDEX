@@ -4,4 +4,3 @@ Brute force parallel    Brute force algorithm for the knapsack problem
 Dynamic programming     Dynamic programming algorithm for the knapsack
                         problem
 Greedy heuristic        Greedy heuristic for the knapsack problem
-Lab6-package            knapsack-algos

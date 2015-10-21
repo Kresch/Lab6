@@ -47,8 +47,7 @@ brute_force_knapsack_para: no visible global function definition for
 * checking Rd files ... OK
 * checking Rd metadata ... OK
 * checking Rd line widths ... OK
-* checking Rd cross-references ... WARNING
-Unknown package '<pkg>' in Rd xrefs
+* checking Rd cross-references ... OK
 * checking for missing documentation entries ... WARNING
 Undocumented code objects:
   'W' 'brute_force_knapsack' 'brute_force_knapsack_para'
@@ -60,31 +59,12 @@ Extensions' manual.
 * checking for code/documentation mismatches ... OK
 * checking Rd \usage sections ... OK
 * checking Rd contents ... OK
-* checking for unstated dependencies in examples ... WARNING
-Warning: erreur d'analyse de code dans le fichier 'Lab6-Ex.R' :
-21:11: unexpected symbol
-20: 
-21: ~~ simple examples
-              ^
+* checking for unstated dependencies in examples ... OK
  WARNING
 'qpdf' is needed for checks on size reduction of PDFs
 * checking installed files from 'inst/doc' ... OK
 * checking files in 'vignettes' ... OK
-* checking examples ... ERROR
-Running examples in 'Lab6-Ex.R' failed
-The error most likely occurred in:
-
-> base::assign(".ptime", proc.time(), pos = "CheckExEnv")
-> ### Name: Lab6-package
-> ### Title: knapsack-algos
-> ### Aliases: Lab6-package Lab6
-> ### Keywords: package
-> 
-> ### ** Examples
-> 
-> ~~ simple examples of the most important functions ~~
-Error: unexpected symbol in "~~ simple examples"
-Execution halted
+* checking examples ... NONE
 * checking for unstated dependencies in 'tests' ... OK
 * checking tests ... OK
   Running 'testthat.R'
@@ -105,4 +85,4 @@ This typically indicates Rd problems.
 LaTeX errors found:
 * checking PDF version of manual without hyperrefs or index ... ERROR
 * DONE
-Status: 2 ERRORs, 5 WARNINGs, 4 NOTEs
+Status: 1 ERROR, 3 WARNINGs, 4 NOTEs

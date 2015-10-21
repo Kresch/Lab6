@@ -10,7 +10,7 @@
 
 <meta name="author" content="Niclas Lovsjö and Maxime Bonneau" />
 
-<meta name="date" content="2015-10-20" />
+<meta name="date" content="2015-10-21" />
 
 <title>Lab6 Vignette</title>
 
@@ -54,7 +54,7 @@ code > span.er { color: #ff0000; font-weight: bold; }
 <div id="header">
 <h1 class="title">Lab6 Vignette</h1>
 <h4 class="author"><em>Niclas Lovsjö and Maxime Bonneau</em></h4>
-<h4 class="date"><em>2015-10-20</em></h4>
+<h4 class="date"><em>2015-10-21</em></h4>
 </div>
 
 
@@ -70,7 +70,7 @@ knapsack_objects &lt;-
         )
 <span class="kw">system.time</span>(<span class="kw">brute_force_knapsack</span>(knapsack_objects,<span class="dv">2000</span>))</code></pre>
 <pre><code>##    user  system elapsed 
-##    4.88    0.03    4.90</code></pre>
+##    1.53    0.02    1.54</code></pre>
 <p><em><strong>Dynamic programming</strong></em></p>
 <p><strong>Question:</strong> <em>How long time does it take to run the algorithm for n=500 objects?</em></p>
 <pre class="sourceCode r"><code class="sourceCode r"><span class="kw">set.seed</span>(<span class="dv">42</span>)
@@ -82,7 +82,7 @@ knapsack_objects &lt;-
         )
 <span class="kw">system.time</span>(<span class="kw">knapsack_dynamic</span>(knapsack_objects,<span class="dv">2000</span>))</code></pre>
 <pre><code>##    user  system elapsed 
-##   10.42    0.02   10.49</code></pre>
+##    3.34    0.00    3.36</code></pre>
 <p><em><strong>Greedy heuristic</strong></em></p>
 <p><strong>Question:</strong> <em>How long time does it take to run the algorithm for n=1000000 objects?</em></p>
 <pre class="sourceCode r"><code class="sourceCode r">n &lt;-<span class="st"> </span><span class="dv">1000000</span>
@@ -94,7 +94,7 @@ knapsack_objects &lt;-
   
 <span class="kw">system.time</span>(<span class="kw">greedy_knapsack</span>(knapsack_objects,<span class="dt">W=</span><span class="dv">2000</span>))</code></pre>
 <pre><code>##    user  system elapsed 
-##    2.05    0.04    2.10</code></pre>
+##    1.08    0.00    1.07</code></pre>
 <p><em><strong>Profiling</strong></em></p>
 <p><strong>Question:</strong> <em>How large performance gain could you get by trying to improving your code?</em></p>
 <p>We didnt find any particular bottlenecks using lineprof.</p>
@@ -109,10 +109,10 @@ knapsack_objects &lt;-
         )
 <span class="kw">system.time</span>(<span class="kw">brute_force_knapsack_para_nopara</span>(knapsack_objects,<span class="dt">W=</span><span class="dv">2000</span>))</code></pre>
 <pre><code>##    user  system elapsed 
-##    4.34    0.01    4.36</code></pre>
+##    1.56    0.00    1.56</code></pre>
 <pre class="sourceCode r"><code class="sourceCode r"><span class="kw">system.time</span>(<span class="kw">brute_force_knapsack_para</span>(knapsack_objects,<span class="dt">W=</span><span class="dv">2000</span>))</code></pre>
 <pre><code>##    user  system elapsed 
-##    0.64    0.68   11.33</code></pre>
+##    0.65    0.28    8.12</code></pre>
 
 
 
